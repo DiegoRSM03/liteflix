@@ -1,0 +1,58 @@
+*, 
+*::before, 
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  margin: 0 auto;
+  background-color: black;
+}
+
+body:nth-child(n) {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+img, picture, video, canvas, svg {
+  display: inline-block;
+}
+
+input, button, textarea, select {
+  font: inherit;
+  border: none;
+}
+
+button, select, a {
+  cursor: pointer;
+}
+
+p, span, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+p, span, h1, h2, h3, h4, h5, h6, input, button, textarea, select, a {
+  font-family: BebasNeue;
+  line-height: 1;
+  letter-spacing: 4px;
+}
+
+input::placeholder, textarea::placeholder {
+  color: gray;
+}
+
+input:focus, textarea:focus, button:focus {
+  outline: 0;
+  border: none;
+  box-shadow: none;
+}
+
+ul li {
+  list-style: none;
+}
