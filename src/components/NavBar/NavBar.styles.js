@@ -4,6 +4,11 @@ export const NavBar = styled.nav`
   display: flex;
   justify-content: center;
 
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
   width: 100%;
 `
 
@@ -19,24 +24,11 @@ export const Container = styled.div`
   @media (min-width: 480px) {
     padding: 35px 0;
   }
-`
 
-export const withBadge = styled.div`
-  position: relative;
-  cursor: pointer;
-
-  &::after {
-    content: "";
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    right: 2px;
-
-    background-color: ${(props) => props.theme.color.primary};
-    border-radius: 50%;
-
-    aspect-ratio: 1/1;
-    width: 9px;
-    height: auto;
+  // When the device is mobile, it will expand to cover the entire remaining space
+  @media (max-width: 480px) {
+    & > div {
+      width: 100%;
+    }
   }
 `

@@ -3,7 +3,7 @@ import { ThemeProvider } from "styled-components"
 import { liteflixTheme } from "liteflixTheme"
 
 import { MenuContextProvider } from "context"
-import { NavBar } from "components"
+import { Menu, NavBar } from "components"
 import { Upload } from "pages"
 
 function App() {
@@ -12,6 +12,7 @@ function App() {
       <BrowserRouter>
         <MenuContextProvider>
           <NavBar />
+          <Menu />
         </MenuContextProvider>
 
         <Routes>
