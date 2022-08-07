@@ -1,9 +1,9 @@
-import styled from "styled-components"
+import styled from "styled-components/macro"
 
 export const BurgerMenu = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-between;
 
   aspect-ratio: 27/12; // BurgerMenu's size from figma
@@ -33,6 +33,10 @@ export const BurgerMenu = styled.div`
 
   & > div:nth-child(3) {
     width: 62%;
+  }
+
+  @media (min-width: 800px) {
+    align-items: flex-end;
   }
 `
 

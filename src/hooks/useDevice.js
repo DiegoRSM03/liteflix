@@ -5,9 +5,9 @@ export const useDevice = () => {
 
   useEffect(() => {
     window.addEventListener("resize", () =>
-      setIsMobile(window.innerWidth <= 480)
+      setIsMobile(window.innerWidth <= 800)
     )
-    setIsMobile(window.innerWidth <= 480)
+    setIsMobile(window.innerWidth <= 800)
   }, [])
 
   return { isMobile }

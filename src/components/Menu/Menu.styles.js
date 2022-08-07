@@ -1,10 +1,11 @@
-import styled from "styled-components"
+import styled from "styled-components/macro"
 
 export const Menu = styled.div`
   display: grid;
   place-content: center;
 
   position: fixed;
+  z-index: 4;
   top: 0;
   right: 0;
   bottom: 0;
@@ -20,7 +21,7 @@ export const Menu = styled.div`
     transform: translateX(0);
   }
 
-  @media (min-width: 480px) {
+  @media (min-width: 800px) {
     width: 761px;
   }
 `
@@ -36,7 +37,7 @@ export const Container = styled.div`
   height: 100vh;
   padding: 24px 0;
 
-  @media (min-width: 480px) {
+  @media (min-width: 800px) {
     gap: 72px;
     width: 550px;
     padding: 35px 0;
@@ -51,7 +52,7 @@ export const Header = styled.div`
   width: 100%;
   margin-bottom: calc(72px - 65px);
 
-  @media (min-width: 480px) {
+  @media (min-width: 800px) {
     margin-bottom: calc(90px - 72px);
   }
 `

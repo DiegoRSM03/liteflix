@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components/macro"
 
 export const StyledAppLogo = styled.span`
   color: ${(props) => props.theme.color.primary};
@@ -9,7 +9,7 @@ export const StyledAppLogo = styled.span`
     font-weight: bold;
   }
 
-  @media (min-width: 480px) {
+  @media (min-width: 800px) {
     font-size: 34px;
   }
 `

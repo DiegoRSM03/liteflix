@@ -1,10 +1,10 @@
 import { createContext } from "react"
-import { useMenu } from "hooks"
+import { useToggle } from "hooks"
 
 export const MenuContext = createContext()
 
 export const MenuContextProvider = ({ children }) => {
-  const { isOpen, toggleIsOpen } = useMenu()
+  const { isOpen, toggleIsOpen } = useToggle()
 
   return (
     <MenuContext.Provider

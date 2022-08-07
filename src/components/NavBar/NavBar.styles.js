@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components/macro"
 
 export const NavBar = styled.nav`
   display: flex;
@@ -9,6 +9,11 @@ export const NavBar = styled.nav`
   left: 0;
   right: 0;
 
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0)
+  );
   width: 100%;
 `
 
@@ -21,12 +26,12 @@ export const Container = styled.div`
   max-width: ${(props) => props.theme.container.maxWidth};
   padding: 24px 0;
 
-  @media (min-width: 480px) {
+  @media (min-width: 800px) {
     padding: 35px 0;
   }
 
   // When the device is mobile, it will expand to cover the entire remaining space
-  @media (max-width: 480px) {
+  @media (max-width: 800px) {
     & > div {
       width: 100%;
     }

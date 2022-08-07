@@ -1,2 +1,6 @@
 export * from "./NavBar/NavBar"
 export * from "./Menu/Menu"
+export * from "./MovieInformation/MovieInformation"
+export * from "./MoviesColumn/MoviesColumn"
+export * from "./DropDown/DropDown"
+export * from "./MoviePreview/MoviePreview"
