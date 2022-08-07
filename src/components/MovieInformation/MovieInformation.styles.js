@@ -8,7 +8,7 @@ export const MovieInformation = styled.div`
   gap: 16px;
 
   width: 100%;
-  height: 65vh;
+  height: 72vh;
 
   @media (min-width: 800px) {
     align-items: flex-start;
