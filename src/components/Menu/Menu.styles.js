@@ -10,7 +10,7 @@ export const Menu = styled.div`
   right: 0;
   bottom: 0;
 
-  background-color: ${(props) => props.theme.color.dark};
+  background-color: rgba(21, 21, 21, 0.95);
   transform: translateX(100%);
   transition: 0.5s ease 0s;
 
@@ -23,6 +23,7 @@ export const Menu = styled.div`
 
   @media (min-width: 800px) {
     width: 761px;
+    background-color: rgba(21, 21, 21, 0.9);
   }
 `
 
@@ -39,7 +40,7 @@ export const Container = styled.div`
 
   @media (min-width: 800px) {
     gap: 72px;
-    width: 550px;
+    width: calc(761px - 10vw);
     padding: 35px 0;
   }
 `
