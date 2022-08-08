@@ -1,13 +1,13 @@
 import { SWRConfig } from "swr"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import { ThemeProvider } from "styled-components"
 import { liteflixTheme } from "liteflixTheme"
 
 import { MenuContextProvider } from "context"
 import { Menu, NavBar } from "components"
-import { HomePage, Upload } from "pages"
+import { HomePage } from "pages"
 
+// Fetcher function which useSWR will use
 const fetcher = (resource, init) =>
   fetch(
     `https://api.themoviedb.org/3${resource}?api_key=6f26fd536dd6192ec8a57e94141f8b20`,
@@ -25,17 +25,11 @@ function App() {
           fetcher,
         }}
       >
-        <BrowserRouter>
-          <MenuContextProvider>
-            <NavBar />
-            <Menu />
-          </MenuContextProvider>
-
-          <Routes>
-            <Route path="/upload" element={<Upload />} />
-            <Route path="/" element={<HomePage />} />
-          </Routes>
-        </BrowserRouter>
+        <MenuContextProvider>
+          <NavBar />
+          <Menu />
+        </MenuContextProvider>
+        <HomePage />
       </SWRConfig>
     </ThemeProvider>
   )

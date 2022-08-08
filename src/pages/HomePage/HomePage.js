@@ -12,8 +12,8 @@ const HomePage = () => {
       <S.MovieBackground id="movie-background">
         <S.DarkerBackround>
           <S.Container>
+            <MovieInformation />
             <MoviesByCategoryContextProvider>
-              <MovieInformation />
               {!isMobile && <MoviesColumn />}
             </MoviesByCategoryContextProvider>
           </S.Container>
