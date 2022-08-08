@@ -9,7 +9,7 @@ export const useMoviesCategory = () => {
       tag: "popular",
     },
     now_playing: {
-      title: "En Taquilla",
+      title: "En Cines",
       endpoint: "/movie/now_playing",
       tag: "now_playing",
     },
