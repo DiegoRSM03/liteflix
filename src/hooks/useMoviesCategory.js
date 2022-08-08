@@ -37,8 +37,8 @@ export const useMoviesCategory = () => {
   return {
     currentCategory,
     availableCategories,
-    isLoading,
     movies: data?.results.slice(-4),
+    isLoading,
     changeToCategory,
   }
 }

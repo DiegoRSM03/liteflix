@@ -1,5 +1,7 @@
 import { MovieInformation, MoviesColumn } from "components"
 import { useDevice } from "hooks"
+import { MoviesByCategoryContextProvider } from "context"
+
 import * as S from "./HomePage.styles"
 
 const HomePage = () => {
@@ -10,13 +12,19 @@ const HomePage = () => {
       <S.MovieBackground id="movie-background">
         <S.DarkerBackround>
           <S.Container>
-            <MovieInformation />
-            {!isMobile && <MoviesColumn />}
+            <MoviesByCategoryContextProvider>
+              <MovieInformation />
+              {!isMobile && <MoviesColumn />}
+            </MoviesByCategoryContextProvider>
           </S.Container>
         </S.DarkerBackround>
       </S.MovieBackground>
 
-      {isMobile && <MoviesColumn />}
+      {isMobile && (
+        <MoviesByCategoryContextProvider>
+          <MoviesColumn />
+        </MoviesByCategoryContextProvider>
+      )}
     </S.HomePage>
   )
 }

@@ -1,11 +1,12 @@
+import { useContext } from "react"
+
 import { DropDown, MoviePreview } from "components"
-import { useMoviesCategory } from "hooks"
+import { MoviesByCategoryContext } from "context"
 
 import * as S from "./MoviesColumn.styles"
 
 export const MoviesColumn = () => {
-  const { movies, isLoading } = useMoviesCategory()
-  console.log({ movies })
+  const { movies, isLoading } = useContext(MoviesByCategoryContext)
 
   return (
     <S.MovieColumn>

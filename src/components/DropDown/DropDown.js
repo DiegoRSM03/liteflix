@@ -1,14 +1,17 @@
+import { useContext } from "react"
 import cs from "classnames"
 
-import { useMoviesCategory, useToggle } from "hooks"
+import { useToggle } from "hooks"
+import { MoviesByCategoryContext } from "context"
 import { Text } from "styles"
 
 import arrowDownSvg from "assets/img/down-arrow.svg"
 import * as S from "./DropDown.styles"
 
 export const DropDown = () => {
-  const { currentCategory, availableCategories, changeToCategory } =
-    useMoviesCategory()
+  const { currentCategory, availableCategories, changeToCategory } = useContext(
+    MoviesByCategoryContext
+  )
   const { isOpen, toggleIsOpen } = useToggle()
 
   const handleDropDownClick = () => {
