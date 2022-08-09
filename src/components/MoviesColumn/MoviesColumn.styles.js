@@ -6,6 +6,7 @@ export const MoviesColumn = styled.ul`
   gap: 25px;
 
   position: relative;
+  z-index: 2;
   width: 100%;
 
   @media (min-width: 480px) {
