@@ -1,10 +1,18 @@
 import { componentScreen } from "components/UploadModal/componentScreen"
 
 export const uploadFileReducer = (state, screen) => {
-  const dispatchedScreen = componentScreen[screen]
+  let newState
 
-  return {
+  const dispatchedScreen = componentScreen[screen]
+  console.log({ screen })
+  console.log({ componentScreen })
+  console.log({ dispatchedScreen })
+
+  newState = {
     screen,
-    component: dispatchedScreen,
+    component: dispatchedScreen.component,
+    nextScreen: dispatchedScreen.nextScreen,
   }
+
+  return newState
 }

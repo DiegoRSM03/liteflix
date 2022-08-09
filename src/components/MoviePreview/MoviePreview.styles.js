@@ -33,13 +33,17 @@ export const BackgroundOverlay = styled.div`
 
   width: 100%;
   height: 100%;
-  padding-top: 50px;
+  padding: 50px 15px 0 15px;
 
   transition: 0.2s ease 0s;
   opacity: 1;
 
   &.open {
     opacity: 0;
+  }
+
+  & > span {
+    text-align: center;
   }
 `
 
@@ -147,6 +151,7 @@ export const BigPlayButton = styled(PlayButton)`
 
 export const SmallPlayButton = styled(PlayButton)`
   width: 27px;
+  flex-shrink: 0;
 
   &::after {
     width: 7px;
