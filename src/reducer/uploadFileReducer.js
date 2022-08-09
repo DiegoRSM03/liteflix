@@ -4,9 +4,6 @@ export const uploadFileReducer = (state, screen) => {
   let newState
 
   const dispatchedScreen = componentScreen[screen]
-  console.log({ screen })
-  console.log({ componentScreen })
-  console.log({ dispatchedScreen })
 
   newState = {
     screen,

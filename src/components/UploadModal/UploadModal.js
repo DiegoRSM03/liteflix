@@ -14,7 +14,6 @@ export const UploadModal = () => {
     screen,
     component,
     nextScreen,
-    uploadMovie,
     dispatch,
     setMovieTitle,
     toggleIsOpen,

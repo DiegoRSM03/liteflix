@@ -2,12 +2,18 @@ import { createContext, useReducer, useState } from "react"
 
 import { useToggle } from "hooks"
 import { uploadFileReducer } from "reducer"
-import { DropZoneScreen } from "components"
+import { DropZoneScreen, LoadedScreen } from "components"
+
+// const initialState = {
+//   screen: "dropzone",
+//   component: <DropZoneScreen />,
+//   nextScreen: "loading",
+// }
 
 const initialState = {
-  screen: "dropzone",
-  component: <DropZoneScreen />,
-  nextScreen: "loading",
+  screen: "loaded",
+  component: <LoadedScreen />,
+  nextScreen: "uploaded",
 }
 
 export const UploadScreensContext = createContext()
