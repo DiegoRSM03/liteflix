@@ -8,7 +8,7 @@ export const Overlay = styled.div`
   background-color: rgba(36, 36, 36, 0.9);
 
   position: fixed;
-  z-index: 5;
+  z-index: -1;
   top: 0;
   left: 0;
 
@@ -16,11 +16,11 @@ export const Overlay = styled.div`
   height: 100vh;
 
   transition: 0.3s ease-in 0s;
-  /* opacity: 0; */
+  opacity: 0;
 
   &.open {
-    /* opacity: 1; */
-    /* z-index: 5; */
+    opacity: 1;
+    z-index: 5;
   }
 `
 

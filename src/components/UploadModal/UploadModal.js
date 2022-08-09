@@ -14,6 +14,7 @@ export const UploadModal = () => {
     screen,
     component,
     nextScreen,
+    uploadMovie,
     dispatch,
     setMovieTitle,
     toggleIsOpen,
@@ -22,6 +23,7 @@ export const UploadModal = () => {
 
   const handleUploadMovieClick = async () => {
     if (isUploaded && movieTitle) {
+      if (screen === "uploaded") uploadMovie()
       dispatch(nextScreen)
     }
   }
@@ -38,12 +40,14 @@ export const UploadModal = () => {
 
         {component}
 
-        <S.InputTitle
-          placeholder="TÍTULO"
-          ref={inputTitleRef}
-          value={movieTitle}
-          onChange={(event) => handleMovieTitleChange(event)}
-        />
+        {screen != "uploaded" && (
+          <S.InputTitle
+            placeholder="TÍTULO"
+            ref={inputTitleRef}
+            value={movieTitle}
+            onChange={(event) => handleMovieTitleChange(event)}
+          />
+        )}
         <S.UploadButton
           className={cs({ uploaded: isUploaded })}
           onClick={handleUploadMovieClick}
