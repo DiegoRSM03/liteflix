@@ -5,7 +5,7 @@ export const LoadedScreen = () => {
   return (
     <S.LoadedScreen>
       <Text>100% CARGADO</Text>
-      <S.ProgressBar></S.ProgressBar>
+      <S.ProgressBar />
 
       <S.DoneText>¡LISTO!</S.DoneText>
     </S.LoadedScreen>
