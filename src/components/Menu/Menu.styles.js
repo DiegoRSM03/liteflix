@@ -21,8 +21,11 @@ export const Menu = styled.div`
     transform: translateX(0);
   }
 
+  // These weird calcs are for achieve the overlapping effect of the notification icon and profile pic
   @media (min-width: 800px) {
-    width: 761px;
+    min-width: 761px;
+    width: calc(761px + (100vw - 1200px) / 2 - 5vw);
+    padding-right: calc((100vw - 1200px) / 2 - 5vw);
     background-color: rgba(21, 21, 21, 0.9);
   }
 `
