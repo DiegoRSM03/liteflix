@@ -8,22 +8,30 @@ import * as S from "./UploadModal.styles"
 
 export const UploadModal = () => {
   const {
-    isUploaded,
     isOpen,
     movieTitle,
+    movieUrl,
     screen,
     component,
     nextScreen,
     uploadMovie,
     dispatch,
     setMovieTitle,
+    setMovieUrl,
     toggleIsOpen,
   } = useContext(UploadScreensContext)
   const inputTitleRef = useRef()
 
   const handleUploadMovieClick = async () => {
-    if (isUploaded && movieTitle) {
-      if (screen === "uploaded") uploadMovie()
+    if (movieUrl && movieTitle) {
+      if (screen === "loaded") uploadMovie()
+
+      if (screen === "uploaded") {
+        setMovieTitle("")
+        setMovieUrl("")
+        toggleIsOpen()
+      }
+
       dispatch(nextScreen)
     }
   }
@@ -35,12 +43,12 @@ export const UploadModal = () => {
   return (
     <S.Overlay className={cs({ open: isOpen })}>
       <S.UploadModal>
-        <S.Header>Agregar película</S.Header>
+        {screen !== "uploaded" && <S.Header>Agregar película</S.Header>}
         <S.CloseIcon src={closeSvg} onClick={toggleIsOpen} />
 
         {component}
 
-        {screen != "uploaded" && (
+        {screen !== "uploaded" && (
           <S.InputTitle
             placeholder="TÍTULO"
             ref={inputTitleRef}
@@ -49,7 +57,8 @@ export const UploadModal = () => {
           />
         )}
         <S.UploadButton
-          className={cs({ uploaded: isUploaded })}
+          className={cs({ uploaded: movieTitle && movieUrl })}
+          disabled={screen === "loading"}
           onClick={handleUploadMovieClick}
         >
           {screen === "uploaded"

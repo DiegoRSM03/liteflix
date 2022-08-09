@@ -10,14 +10,12 @@ import * as S from "./DropZoneScreen.styles"
 
 export const DropZoneScreen = () => {
   const { isMobile } = useDevice()
-  const { isUploaded, setIsUploaded, setMovieUrl } =
-    useContext(UploadScreensContext)
+  const { movieUrl, setMovieUrl } = useContext(UploadScreensContext)
 
   const onDrop = useCallback((acceptedFiles) => {
     const imageUrl = URL.createObjectURL(acceptedFiles[0])
     setMovieUrl(imageUrl)
-    setIsUploaded(true)
-  })
+  }, [])
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
@@ -30,7 +28,7 @@ export const DropZoneScreen = () => {
   })
 
   const renderDropZoneText = () => {
-    if (isUploaded) return <Text>Pelicula seleccionada!</Text>
+    if (movieUrl) return <Text>Pelicula seleccionada!</Text>
 
     if (isDragActive) {
       return <Text>Suelta tu archivo aqui</Text>

@@ -12,7 +12,8 @@ export const LoadingScreen = () => {
   }
 
   useEffect(() => {
-    setTimeout(() => dispatch(nextScreen), 4000)
+    const timeoutId = setTimeout(() => dispatch(nextScreen), 4000)
+    return () => clearTimeout(timeoutId)
   })
 
   return (
