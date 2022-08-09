@@ -10,10 +10,22 @@ export const MoviePreview = ({ movieInfo }) => {
 
   return (
     <S.MoviePreview backgroundUrl={movieInfo.backdrop_path}>
-      <S.Overlay className={cs({ open: isOpen })} onClick={toggleIsOpen}>
-        <S.PlayButton />
+      <S.BackgroundOverlay className={cs({ open: isOpen })}>
+        <S.BigPlayButton />
         <Text className="title">{movieInfo.title}</Text>
+      </S.BackgroundOverlay>
+
+      <S.Overlay
+        className={cs({ open: isOpen })}
+        onMouseEnter={toggleIsOpen}
+        onMouseLeave={toggleIsOpen}
+      >
+        <Text weight="bold" className="title">
+          <S.SmallPlayButton />
+          {movieInfo.title}
+        </Text>
         <Text size="14px" className="vote-average">
+          <S.StarIcon />
           {movieInfo.vote_average}
         </Text>
         <Text size="14px" className="release-date">
