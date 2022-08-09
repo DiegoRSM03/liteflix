@@ -1,50 +1,41 @@
-import { useState } from "react"
-import useSWR from "swr"
+import { useEffect, useState } from "react"
+import axios from "axios"
 
-import { useDevice } from "hooks"
+// Idk why isMobile isn't working when i use it in line 27
+// import { useDevice } from "hooks"
 
 export const useRandomMovie = () => {
   const [currentRandomMovie, setCurrentRandomMovie] = useState({})
-  const { isMobile } = useDevice()
-  let alreadyShownMovies = []
+  const [isLoading, setIsLoading] = useState(true)
+  const [bunchOfRandomMovies, setBunchOfRandomMovies] = useState([])
 
-  const { data, error } = useSWR("/movie/now_playing", {
-    refreshInterval: 0,
-    onSuccess: (data) => {
-      pickRandomMovie(data.results)
-      setInterval(() => pickRandomMovie(data.results), 10000)
-    },
-  })
+  const getBunchOfRandomMovies = async () => {
+    setIsLoading(true)
 
-  const isLoading = !error && !data
+    const randomMovie = "/movie/now_playing"
+    const url = `https://api.themoviedb.org/3${randomMovie}?api_key=6f26fd536dd6192ec8a57e94141f8b20`
+    const response = await axios.get(url)
 
-  const pickRandomMovie = (movieGroup) => {
-    const quantityMovies = movieGroup.length
+    const movies = response.data.results
 
-    let newMoviePicked = false
-    let randomNumber = 0
-    let pickedMovie = {}
-
-    do {
-      randomNumber = Math.floor(Math.random() * quantityMovies - 1) + 1
-      pickedMovie = movieGroup[randomNumber]
-      newMoviePicked = alreadyShownMovies.includes(pickedMovie.id)
-    } while (newMoviePicked)
-
-    alreadyShownMovies.push(movieGroup[randomNumber].id)
-    if (alreadyShownMovies.length === quantityMovies) alreadyShownMovies = []
+    setBunchOfRandomMovies(movies)
+    setCurrentRandomMovie(movies[0])
 
     const movieBackground = document.querySelector("#movie-background")
     const backgroundUrl =
       "https://image.tmdb.org/t/p/" +
-      (isMobile ? "w500" : "original") +
+      (window.innerWidth <= 800 ? "w500" : "original") +
       "/" +
-      movieGroup[randomNumber].backdrop_path
+      movies[0].backdrop_path
 
     movieBackground.style.backgroundImage = `url(${backgroundUrl})`
 
-    setCurrentRandomMovie(movieGroup[randomNumber])
+    setIsLoading(false)
   }
+
+  useEffect(() => {
+    getBunchOfRandomMovies()
+  }, [])
 
   return {
     currentRandomMovie,
