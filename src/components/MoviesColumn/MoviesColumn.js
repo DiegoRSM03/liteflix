@@ -12,7 +12,10 @@ export const MoviesColumn = () => {
     <S.MoviesColumn id="movie-list">
       {!isLoading &&
         movies.map((movieInfo) => (
-          <MoviePreview key={movieInfo.id} movieInfo={movieInfo} />
+          <MoviePreview
+            key={movieInfo.id || movieInfo.backdrop_path}
+            movieInfo={movieInfo}
+          />
         ))}
     </S.MoviesColumn>
   )

@@ -11,6 +11,7 @@ export const MoviePreview = styled.div`
 
   @media (min-width: 800px) {
     height: 145px;
+    flex-shrink: 0;
   }
 `
 
