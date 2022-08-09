@@ -1,4 +1,4 @@
-import { MovieInformation, MovieCategories } from "components"
+import { MovieInformation, MovieCategories, UploadModal } from "components"
 import { useDevice } from "hooks"
 
 import * as S from "./HomePage.styles"
@@ -18,6 +18,8 @@ const HomePage = () => {
       </S.MovieBackground>
 
       {isMobile && <MovieCategories />}
+
+      <UploadModal />
     </S.HomePage>
   )
 }

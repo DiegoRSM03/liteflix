@@ -3,7 +3,7 @@ import { SWRConfig } from "swr"
 import { ThemeProvider } from "styled-components"
 import { liteflixTheme } from "liteflixTheme"
 
-import { MenuContextProvider } from "context"
+import { MenuContextProvider, UploadScreensContextProvider } from "context"
 import { Menu, NavBar } from "components"
 import { HomePage } from "pages"
 
@@ -25,11 +25,13 @@ function App() {
           fetcher,
         }}
       >
-        <MenuContextProvider>
-          <NavBar />
-          <Menu />
-        </MenuContextProvider>
-        <HomePage />
+        <UploadScreensContextProvider>
+          <MenuContextProvider>
+            <NavBar />
+            <Menu />
+          </MenuContextProvider>
+          <HomePage />
+        </UploadScreensContextProvider>
       </SWRConfig>
     </ThemeProvider>
   )

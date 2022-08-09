@@ -1,7 +1,15 @@
 export * from "./NavBar/NavBar"
 export * from "./Menu/Menu"
+
 export * from "./MovieInformation/MovieInformation"
 export * from "./MoviesColumn/MoviesColumn"
 export * from "./MovieCategories/MovieCategories"
 export * from "./DropDown/DropDown"
 export * from "./MoviePreview/MoviePreview"
+
+export * from "./UploadModal/UploadModal"
+export * from "./UploadModal/DropZoneScreen/DropZoneScreen"
+export * from "./UploadModal/ErrorScreen/ErrorScreen"
+export * from "./UploadModal/LoadedScreen/LoadedScreen"
+export * from "./UploadModal/LoadingScreen/LoadingScreen"
+export * from "./UploadModal/UploadedScreen/UploadedScreen"

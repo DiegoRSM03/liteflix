@@ -5,7 +5,6 @@ export const MoviesByCategoryContext = createContext()
 
 export const MoviesByCategoryContextProvider = ({ children }) => {
   const values = useMoviesCategory()
-  console.log(values)
 
   return (
     <MoviesByCategoryContext.Provider value={{ ...values }}>
