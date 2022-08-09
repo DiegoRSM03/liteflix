@@ -93,6 +93,12 @@ export const InputTitle = styled.input`
 
 export const UploadButton = styled.button`
   width: 90%;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px 0;
+
+  &.uploaded {
+    background-color: white;
+  }
 
   @media (min-width: 800px) {
     width: 250px;

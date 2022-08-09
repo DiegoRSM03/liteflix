@@ -17,8 +17,19 @@ export const UploadScreensContextProvider = ({ children }) => {
     uploadFileReducer,
     initialState
   )
+  const [movieTitle, setMovieTitle] = useState("")
+  const [movieUrl, setMovieUrl] = useState("")
   const [isUploaded, setIsUploaded] = useState(false)
   const { isOpen, toggleIsOpen } = useToggle()
+
+  const uploadMovie = async () => {
+    const uploadedMovies = JSON.parse(
+      localStorage.getItem("userMovies") || "[]"
+    )
+    uploadedMovies.push({ title: movieTitle, backdrop_path: movieUrl })
+
+    localStorage.setItem("userMovies", JSON.stringify(uploadedMovies))
+  }
 
   return (
     <UploadScreensContext.Provider
@@ -26,10 +37,15 @@ export const UploadScreensContextProvider = ({ children }) => {
         screen,
         component,
         nextScreen,
-        dispatch,
+        movieTitle,
+        movieUrl,
         isUploaded,
-        setIsUploaded,
         isOpen,
+        uploadMovie,
+        dispatch,
+        setMovieTitle,
+        setMovieUrl,
+        setIsUploaded,
         toggleIsOpen,
       }}
     >

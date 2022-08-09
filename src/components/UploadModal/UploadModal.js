@@ -1,5 +1,5 @@
+import { useContext, useRef } from "react"
 import cs from "classnames"
-import { useContext } from "react"
 
 import { UploadScreensContext } from "context"
 
@@ -7,11 +7,28 @@ import closeSvg from "assets/img/cerrar.svg"
 import * as S from "./UploadModal.styles"
 
 export const UploadModal = () => {
-  const { isUploaded, isOpen, toggleIsOpen, component, nextScreen, dispatch } =
-    useContext(UploadScreensContext)
+  const {
+    isUploaded,
+    isOpen,
+    movieTitle,
+    screen,
+    component,
+    nextScreen,
+    uploadMovie,
+    dispatch,
+    setMovieTitle,
+    toggleIsOpen,
+  } = useContext(UploadScreensContext)
+  const inputTitleRef = useRef()
 
-  const handleUploadMovieClick = () => {
-    if (isUploaded) dispatch(nextScreen)
+  const handleUploadMovieClick = async () => {
+    if (isUploaded && movieTitle) {
+      dispatch(nextScreen)
+    }
+  }
+
+  const handleMovieTitleChange = ({ target }) => {
+    setMovieTitle(target.value)
   }
 
   return (
@@ -22,9 +39,17 @@ export const UploadModal = () => {
 
         {component}
 
-        <S.InputTitle placeholder="TÍTULO" />
-        <S.UploadButton onClick={handleUploadMovieClick}>
-          Subir película
+        <S.InputTitle
+          placeholder="TÍTULO"
+          ref={inputTitleRef}
+          value={movieTitle}
+          onChange={(event) => handleMovieTitleChange(event)}
+        />
+        <S.UploadButton
+          className={cs({ uploaded: isUploaded })}
+          onClick={handleUploadMovieClick}
+        >
+          {screen === "loaded" ? "Subir película" : "Siguiente"}
         </S.UploadButton>
       </S.UploadModal>
     </S.Overlay>
