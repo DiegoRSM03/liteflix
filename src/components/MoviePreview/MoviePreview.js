@@ -9,7 +9,16 @@ export const MoviePreview = ({ movieInfo }) => {
   const { isOpen, toggleIsOpen } = useToggle()
 
   return (
-    <S.MoviePreview backgroundUrl={movieInfo.backdrop_path}>
+    <S.MoviePreview>
+      <S.BackgroundImage
+        alt={`${movieInfo.title} background image`}
+        src={
+          movieInfo.isUserMovie
+            ? movieInfo.backdrop_path
+            : `https://image.tmdb.org/t/p/w500/${movieInfo.backdrop_path}`
+        }
+      />
+
       <S.BackgroundOverlay className={cs({ open: isOpen })}>
         <S.BigPlayButton />
         <Text className="title">{movieInfo.title}</Text>
@@ -24,13 +33,18 @@ export const MoviePreview = ({ movieInfo }) => {
           <S.SmallPlayButton />
           {movieInfo.title}
         </Text>
-        <Text size="14px" className="vote-average">
-          <S.StarIcon />
-          {movieInfo.vote_average}
-        </Text>
-        <Text size="14px" className="release-date">
-          {movieInfo.release_date.slice(0, 4)}
-        </Text>
+
+        {!movieInfo.isUserMovie && (
+          <>
+            <Text size="14px" className="vote-average">
+              <S.StarIcon />
+              {movieInfo.vote_average}
+            </Text>
+            <Text size="14px" className="release-date">
+              {movieInfo.release_date.slice(0, 4)}
+            </Text>
+          </>
+        )}
       </S.Overlay>
     </S.MoviePreview>
   )

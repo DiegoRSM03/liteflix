@@ -1,10 +1,6 @@
 import styled from "styled-components/macro"
 
 export const MoviePreview = styled.div`
-  background-image: url(https://image.tmdb.org/t/p/w500/${(props) =>
-    props.backgroundUrl});
-  background-repeat: no-repeat;
-  background-size: cover;
   border-radius: 4px;
   overflow: hidden;
 
@@ -16,6 +12,18 @@ export const MoviePreview = styled.div`
   @media (min-width: 800px) {
     height: 145px;
   }
+`
+
+export const BackgroundImage = styled.img`
+  object-fit: cover;
+  object-position: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
 `
 
 export const BackgroundOverlay = styled.div`

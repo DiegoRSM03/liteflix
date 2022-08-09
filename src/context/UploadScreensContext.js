@@ -26,7 +26,11 @@ export const UploadScreensContextProvider = ({ children }) => {
     const uploadedMovies = JSON.parse(
       localStorage.getItem("userMovies") || "[]"
     )
-    uploadedMovies.push({ title: movieTitle, backdrop_path: movieUrl })
+    uploadedMovies.push({
+      title: movieTitle,
+      backdrop_path: movieUrl,
+      isUserMovie: true,
+    })
 
     localStorage.setItem("userMovies", JSON.stringify(uploadedMovies))
   }
