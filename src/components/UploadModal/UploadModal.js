@@ -48,7 +48,11 @@ export const UploadModal = () => {
           className={cs({ uploaded: isUploaded })}
           onClick={handleUploadMovieClick}
         >
-          {screen === "loaded" ? "Subir película" : "Siguiente"}
+          {screen === "uploaded"
+            ? "Ir al home"
+            : screen === "loaded"
+            ? "Subir película"
+            : "Siguiente"}
         </S.UploadButton>
       </S.UploadModal>
     </S.Overlay>
