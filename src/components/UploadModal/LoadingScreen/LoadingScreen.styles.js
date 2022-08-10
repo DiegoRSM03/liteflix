@@ -27,7 +27,7 @@ export const ProgressBar = styled.div`
 
   width: 100%;
   height: 10px;
-  overflow-y: hidden;
+  overflow: hidden;
 `
 
 export const LinePrimaryColor = styled.div`
