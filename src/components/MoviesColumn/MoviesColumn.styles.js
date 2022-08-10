@@ -14,4 +14,6 @@ export const MoviesColumn = styled.ul`
     max-height: 650px;
     overflow: auto;
   }
+
+  ${(props) => props.theme.animation.rightFadeIn}
 `

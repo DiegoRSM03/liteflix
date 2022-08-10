@@ -8,14 +8,13 @@ const HomePage = () => {
 
   return (
     <S.HomePage>
-      <S.MovieBackground id="movie-background">
-        <S.DarkerBackround>
-          <S.Container>
-            <MovieInformation />
-            {!isMobile && <MovieCategories />}
-          </S.Container>
-        </S.DarkerBackround>
-      </S.MovieBackground>
+      <S.MovieBackground id="movie-background" />
+      <S.DarkerBackround />
+
+      <S.Container>
+        <MovieInformation />
+        {!isMobile && <MovieCategories />}
+      </S.Container>
 
       {isMobile && <MovieCategories />}
 

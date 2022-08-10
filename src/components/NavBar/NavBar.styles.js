@@ -5,6 +5,7 @@ export const NavBar = styled.nav`
   justify-content: center;
 
   position: fixed;
+  z-index: 4;
   top: 0;
   left: 0;
   right: 0;
@@ -15,6 +16,8 @@ export const NavBar = styled.nav`
     rgba(0, 0, 0, 0)
   );
   width: 100%;
+
+  ${(props) => props.theme.animation.topFadeIn}
 `
 
 export const Container = styled.div`

@@ -29,6 +29,7 @@ export const useRandomMovie = () => {
       movies[0].backdrop_path
 
     movieBackground.style.backgroundImage = `url(${backgroundUrl})`
+    movieBackground.setAttribute("src", backgroundUrl)
 
     setIsLoading(false)
   }

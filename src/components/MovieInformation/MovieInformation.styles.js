@@ -37,4 +37,6 @@ export const Title = styled.h2`
     font-size: 120px;
     text-align: left;
   }
+
+  ${(props) => props.theme.animation.leftFadeIn};
 `

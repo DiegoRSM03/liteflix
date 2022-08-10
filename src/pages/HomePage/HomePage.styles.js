@@ -2,14 +2,34 @@ import styled from "styled-components/macro"
 
 export const HomePage = styled.section``
 
-export const MovieBackground = styled.div`
-  // background-image: (value which will be updated by javascript in component MovieInformation)
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+export const FullInitialViewport = styled.div`
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+`
+
+export const MovieBackground = styled.img`
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  ${(props) => props.theme.animation.kenBurnsIn}
 `
 
 export const DarkerBackround = styled.div`
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+
   width: 100%;
   height: 100%;
 
@@ -26,6 +46,9 @@ export const DarkerBackround = styled.div`
 `
 
 export const Container = styled.div`
+  position: relative;
+  z-index: 3;
+
   display: flex;
   flex-direction: column;
   align-items: center;
