@@ -12,4 +12,9 @@ export const Button = styled.button`
 
   width: 248px;
   height: 56px;
+  transition: 0.3s ease 0s;
+
+  &:hover {
+    background-color: #151515;
+  }
 `
