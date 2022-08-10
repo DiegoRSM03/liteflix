@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import axios from "axios"
+import { fetchRandomMovies } from "services"
 
 // Idk why isMobile isn't working when i use it in line 12
 // import { useDevice } from "hooks"
@@ -25,11 +25,7 @@ export const useRandomMovie = () => {
   const getBunchOfRandomMovies = async () => {
     setIsLoading(true)
 
-    const randomMovie = "/movie/now_playing"
-    const url = `https://api.themoviedb.org/3${randomMovie}?api_key=6f26fd536dd6192ec8a57e94141f8b20`
-
-    const response = await axios.get(url)
-    const movies = response.data.results
+    const movies = await fetchRandomMovies()
 
     setBunchOfRandomMovies(movies)
 

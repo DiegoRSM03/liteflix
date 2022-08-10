@@ -17,6 +17,12 @@ body:nth-child(n) {
   width: 100%;
 }
 
+@media (min-width: 800px) {
+  body {
+    overflow-y: hidden;
+  }
+}
+
 a {
   text-decoration: none;
 }
