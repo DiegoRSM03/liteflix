@@ -36,7 +36,7 @@ export const useRandomMovie = () => {
     setIsLoading(false)
   }
 
-  const pickRandomMovie = () => {
+  const pickRandomMovie = (intervalId) => {
     const movieNotShown = bunchOfRandomMovies.find(
       (movie) => !alreadyShownMovies.includes(movie.id)
     )
@@ -46,8 +46,9 @@ export const useRandomMovie = () => {
     setCurrentRandomMovie(movieNotShown)
     setAlreadyShownMovies(newAlreadyShownMovies.push(movieNotShown.id))
 
-    if (alreadyShownMovies.length === bunchOfRandomMovies.length)
-      setAlreadyShownMovies([])
+    if (alreadyShownMovies.length === bunchOfRandomMovies.length) {
+      clearInterval(intervalId)
+    }
   }
 
   useEffect(() => {
@@ -55,7 +56,7 @@ export const useRandomMovie = () => {
   }, [])
 
   useEffect(() => {
-    const intervalId = setInterval(() => pickRandomMovie(), 8000)
+    const intervalId = setInterval(() => pickRandomMovie(intervalId), 8000)
     return () => clearInterval(intervalId)
   }, [bunchOfRandomMovies])
 
