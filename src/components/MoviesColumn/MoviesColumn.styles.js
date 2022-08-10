@@ -12,6 +12,7 @@ export const MoviesColumn = styled.ul`
   @media (min-width: 480px) {
     gap: 20px;
     max-height: 650px;
+    height: 80vh;
     overflow: auto;
   }
 
