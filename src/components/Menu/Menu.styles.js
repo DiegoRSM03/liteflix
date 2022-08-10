@@ -40,6 +40,7 @@ export const Container = styled.div`
   width: 90vw;
   height: 100vh;
   padding: 24px 0;
+  overflow-y: auto;
 
   @media (min-width: 800px) {
     gap: 72px;
