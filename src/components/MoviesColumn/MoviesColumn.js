@@ -10,13 +10,14 @@ export const MoviesColumn = () => {
 
   return (
     <S.MoviesColumn id="movie-list">
-      {!isLoading &&
-        movies.map((movieInfo) => (
-          <MoviePreview
-            key={movieInfo.id || movieInfo.backdrop_path}
-            movieInfo={movieInfo}
-          />
-        ))}
+      {isLoading
+        ? [1, 2, 3, 4].map((number) => <S.MovieSkeleton key={number} />)
+        : movies.map((movieInfo) => (
+            <MoviePreview
+              key={movieInfo.id || movieInfo.backdrop_path}
+              movieInfo={movieInfo}
+            />
+          ))}
     </S.MoviesColumn>
   )
 }

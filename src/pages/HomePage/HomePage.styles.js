@@ -6,7 +6,6 @@ export const FullInitialViewport = styled.div`
   position: relative;
 
   width: 100%;
-  min-height: 100vh;
 `
 
 export const MovieBackground = styled.img`
